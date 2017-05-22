@@ -6,7 +6,7 @@
 /*   By: varichar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 13:31:31 by varichar          #+#    #+#             */
-/*   Updated: 2017/05/22 15:19:21 by varichar         ###   ########.fr       */
+/*   Updated: 2017/05/22 16:22:50 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void	get_map(t_map *map)
 
 	line = NULL;
 	i = 0;
-	map->map = (char **)malloc(sizeof(char *) * map->y);
+	if (map->map)
+
+	map->map = (char **)malloc(sizeof(char *) * map->y + 1);
 	while (ft_strstr(line, "000"))
 	{
 		free(line);
@@ -64,6 +66,7 @@ void	get_map(t_map *map)
 		get_next_line(0, &line);
 		map->map[i++] = ft_strdup(line + 4);
 	}
+	map->map[i] = NULL;
 }
 
 void	get_piece_size(t_pc *pc)
@@ -94,7 +97,7 @@ void	get_piece(t_pc *pc)
 
 	line = NULL;
 	i = 0;
-	pc->pc = (char **)malloc(sizeof(char *) * pc->y);
+	pc->pc = (char **)malloc(sizeof(char *) * pc->y + 1);
 	while (ft_strchr(line, '*') || ft_strchr(line, '.'))
 	{
 		free(line);
@@ -106,4 +109,5 @@ void	get_piece(t_pc *pc)
 		get_next_line(0, &line);
 		pc->pc[i++] = ft_strdup(line);
 	}
+	pc->pc[i] = NULL;
 }
