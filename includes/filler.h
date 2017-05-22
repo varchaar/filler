@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/22 13:17:47 by varichar          #+#    #+#             */
-/*   Updated: 2017/05/22 15:15:56 by varichar         ###   ########.fr       */
+/*   Created: 2017/05/22 13:38:15 by varichar          #+#    #+#             */
+/*   Updated: 2017/05/22 15:05:29 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#ifndef FILLER_H
+# define FILLER_H
+# define LOGIN	"varichar"
+# define P1		'O'
+# define P2		'X'
 
-int main(void)
+# include "libft.h"
+
+typedef struct	s_map
 {
-	char *line;
+	int		pl;
+	int		x;
+	int		y;
+	char	**map;
+}				t_map;
 
-	while (get_next_line(0, &line) > 0)
-		
-	return 0;
-}
+typedef struct	s_pc 
+{
+	int		x;
+	int		y;
+	char	**pc;
+}				t_pc;
+
+#endif
